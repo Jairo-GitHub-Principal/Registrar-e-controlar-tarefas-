@@ -7,14 +7,18 @@ import CadastrarTarefas from "./CadastrarTarefas";
 
 
 class ListaDeTarefas extends Component{
-
-              
-       
-    
    
+   
+    getStilo = ()=>{
+        var estatusAtual = this.props.estatus;
+        if(estatusAtual ==="concluido"){
+            return listaStyle.testosDeTarefaConcluida
+        }else{
+            return listaStyle.pendente
+        }
 
-
-           
+    }
+    
     render(){
         return(
 
@@ -29,8 +33,11 @@ class ListaDeTarefas extends Component{
                                 <Text style={listaStyle.testosDeTarefaPendentes}>Tarefa Cadastrada : {this.props.datainicial }</Text>
                                 <Text style={listaStyle.testosDeTarefaPendentes}>Taréfa estará pronta : {this.props.datafinal }</Text>
                                 <Text style={listaStyle.testosDeTarefaPendentes}>Prioridade:  {this.props.prioridade }</Text>
-                                <Text style={listaStyle.testosDeTarefaPendentes}>Estatus:{this.props.estatus }</Text>
+                                <Text style={this.getStilo()}>Estatus:{this.props.estatus }</Text>
                                 <Text style={listaStyle.testosDeTarefaPendentes}>ID:{this.props.id}</Text>
+                                
+                                
+                               
                                                    
                             </View>
 
@@ -46,6 +53,10 @@ class ListaDeTarefas extends Component{
                                 style={listaStyle.botao}>
                                 <Text style={listaStyle.textBotao}>Concluir</Text>
                                 </TouchableOpacity>
+
+                               
+
+                               
                             </View>
                                                   
                         </View>
@@ -53,6 +64,8 @@ class ListaDeTarefas extends Component{
 
         )
     }
+
+    
 }
 
 export default ListaDeTarefas

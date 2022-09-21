@@ -37,7 +37,7 @@ export default class ItemDatabase {
                         console.log("O Banco de dados não está pronto... Criando tabela");
                         db.transaction((tx) => {
                             // aqui a tabela é criada, se ainda não existir
-                            tx.executeSql('CREATE TABLE IF NOT EXISTS ItemTabelas( id INTEGER PRIMARY KEY AUTOINCREMENT,descricao varchar(500),datainicial varchar(30),datafinal varchar(30),prioridade varchar(30),estatus varchar(30),estilos varchar(500))');
+                            tx.executeSql('CREATE TABLE IF NOT EXISTS ItemTabelas( id INTEGER PRIMARY KEY AUTOINCREMENT,descricao varchar(500),datainicial DATETIME,datafinal varchar(30),prioridade varchar(30),estatus varchar(30),estilos varchar(500))');
                         }).then(() => {
                             console.log("Tabela criada com Sucesso");
                         }).catch(error => {

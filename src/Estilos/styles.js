@@ -23,7 +23,8 @@ const listaStyle = StyleSheet.create({
     //os codigos abaixos são estilos que aparece  apos clicar no botão concluir para marcar a tarefa como concluida
     concluidoContainer:{backgroundColor:'#8fbc8f',width:'90%'},
     botaoTarefaConcluida:{width:'48%',alignItems:'center',margin:5},
-    testosDeTarefaConcluida:{color:'white',fontWeight:'500',margin:1}
+    testosDeTarefaConcluida:{color:'green',fontWeight:'500'},
+    pendente:{color:'red',fontWeight:'500'}
 
 
 
@@ -31,6 +32,10 @@ const listaStyle = StyleSheet.create({
 
 })
 
+const dataStyle = StyleSheet.create({
+    datacomponente:{}
+})
 
 
-export {TarefaStyle,listaStyle}
+
+export {TarefaStyle,listaStyle,dataStyle}

@@ -3,8 +3,14 @@ import { Text, TextInput, TouchableOpacity, View,ScrollView } from 'react-native
 import { listaStyle, TarefaStyle } from '../Estilos/styles.js';
 import ListaDeTarefas from './ListaDeTarefas.js';
 import ItemDatabase from '../Database/ItemDatabase.js';
+
+import DatePicker from "react-native-date-picker";
+import { DatePickerAndroidOpenReturn } from "react-native";
+
+
 import Item from '../Model/Item.js';
-import { DatePickerAndroidOpenOptions } from 'react-native';
+import Datas from './Data.js';
+import DataText from './DataText.js';
 
 
 class CadastrarTarefas extends Component {
@@ -19,7 +25,11 @@ class CadastrarTarefas extends Component {
             prioridade:'', 
             estatus:pendente, 
             estilos:'', 
-            lista:[]
+            lista:[],
+
+            datainiConvertida:0,
+            datafinConvertida:0,
+            
         }
         
         
@@ -37,6 +47,7 @@ class CadastrarTarefas extends Component {
             const DB = new ItemDatabase();
             DB.Inserir(item);
             this.Listar();
+            
 
         
       
@@ -46,6 +57,7 @@ class CadastrarTarefas extends Component {
     Listar = ()=>{
         const DB = new ItemDatabase();
         DB.Listar().then(listaCompleta =>{this.setState({lista:listaCompleta})})
+
     }
 
     remover = (id)=>{
@@ -63,10 +75,16 @@ class CadastrarTarefas extends Component {
             DB.AtualizarEstatus(item);
            
             this.Listar()
+           
         
        
 
     }
+
+
+   
+
+   
     
     
 
@@ -79,7 +97,7 @@ class CadastrarTarefas extends Component {
             <ScrollView>
             <View style={TarefaStyle.containerTarefa}>
                         <View>
-                            <Text style={TarefaStyle.textTitulo}>Registro de Produtos </Text>
+                            <Text style={TarefaStyle.textTitulo}>Registro de tarefas </Text>
                         </View>
 
 
@@ -103,15 +121,11 @@ class CadastrarTarefas extends Component {
                         
                         <View style={TarefaStyle.legendaInput}>
                             <Text style={{fontSize:17,fontWeight:'500'}}>Prioridade:</Text>
-                            <TextInput  style={TarefaStyle.textInput } onChangeText ={(valorDig)=>{this.setState({prioridade:valorDig})}}></TextInput>
+                            <TextInput onChangeText ={(valorDig)=>{this.setState({prioridade:valorDig})}} style={{fontSize:17,fontWeight:'500'}}></TextInput>
+                             
                         </View>
 
-
-                        
-                           
-                      
-
-                                                
+                                                                 
                         <View style={{flexDirection:'row',justifyContent:'center',margin:10}}>
                             
                             <View style={listaStyle.botao}>
@@ -144,10 +158,17 @@ class CadastrarTarefas extends Component {
                                     estilos = {elementoLista.estilos}
                                     item = {elementoLista}
                                     id = {elementoLista.id}
+                                  
                                    
-
+                                   
                                     excluir ={this.remover}
                                     concluir={this.Concluir}
+
+                                   
+                                    
+                                        
+                                    
+
                                    
 
                                     />

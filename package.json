@@ -10,8 +10,14 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@date-io/date-fns": "^2.15.0",
+    "datepicker": "^0.0.0",
+    "moment": "^2.29.4",
     "react": "18.1.0",
-    "react-native": "0.70.1",
+    "react-moment": "^1.1.2",
+    "react-native": "^0.70.1",
+    "react-native-date-picker": "^4.2.5",
+    "react-native-datepicker": "1.7.2",
     "react-native-sqlite-storage": "^6.0.1"
   },
   "devDependencies": {
