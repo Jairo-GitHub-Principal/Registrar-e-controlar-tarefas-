@@ -3,7 +3,8 @@ import { Text, TextInput, TouchableOpacity, View,ScrollView } from 'react-native
 import { listaStyle, TarefaStyle } from '../Estilos/styles.js';
 import ListaDeTarefas from './ListaDeTarefas.js';
 import ItemDatabase from '../Database/ItemDatabase.js';
-
+import Moment from 'react-moment';
+import moment from 'moment';
 import DatePicker from "react-native-date-picker";
 import { DatePickerAndroidOpenReturn } from "react-native";
 
@@ -108,12 +109,16 @@ class CadastrarTarefas extends Component {
 
                         <View  style={TarefaStyle.legendaInput} >
                             <Text style={{fontSize:17,fontWeight:'500'}}>Tarefa Cadastrada:</Text>
+                           
                             <TextInput   style={TarefaStyle.textInput} onChangeText={(valorDig) =>{this.setState({datainicial:valorDig})}} ></TextInput>
                             
                         </View >
 
+                       
+
                         <View  style={TarefaStyle.legendaInput} >
                             <Text style={{fontSize:17,fontWeight:'500'}}>Tarefa estará pronta:</Text>
+
                             <TextInput  style={TarefaStyle.textInput} onChangeText={(valorDig) =>{this.setState({datafinal:valorDig})}} ></TextInput>
                         </View >
 
